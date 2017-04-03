@@ -51,4 +51,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    public void reviewAA(View view){
+        Intent intent = new Intent(this, ReviewActivity.class);
+        startActivity(intent);
+    }
+
+
 }
