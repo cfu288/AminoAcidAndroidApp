@@ -82,14 +82,14 @@ public class aaActivity extends AppCompatActivity {
         int randInt = getRand();
         while(randInt == lastInt){randInt = getRand();} // Make sure new int is diff
         if(message.equals(currentAA.toLowerCase().replaceAll("\\s+",""))){
+            currentQ++;
+            if (currentQ == numberQ) finish();
             iv.setImageResource(aaArr[randInt]);
             currentAA = aaStrArr[randInt];
             tv.setText("");
             editText.setText("");
-            currentQ++;
             TextView tv1 = (TextView) findViewById(R.id.textViewCounter);
             tv1.setText(currentQ + "/" + numberQ);
-            if (currentQ >= numberQ) finish();
         }else{
             editText.setText("");
             //https://stackoverflow.com/questions/5200811/in-android-how-do-i-smoothly-fade-the-background-from-one-color-to-another-ho
