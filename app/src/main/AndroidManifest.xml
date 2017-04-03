@@ -4,20 +4,31 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
-        android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".aaActivity" android:windowSoftInputMode="adjustPan">
-            <intent-filter>
+        android:theme="@style/AppTheme"
+        android:parentActivityName=".MainActivity">
+        <activity
+            android:name=".aaActivity"
+            android:windowSoftInputMode="adjustPan">
+        </activity>
 
+        <activity
+            android:name=".DisplayMessageActivity"
+            android:parentActivityName=".aaActivity">
+        </activity>
+
+        <activity
+            android:name=".MainActivity"
+            android:icon="@mipmap/ic_launcher"
+            android:label="@string/aaQuiz"
+            android:allowBackup="true"
+            android:roundIcon="@mipmap/ic_launcher_round"
+            android:supportsRtl="true"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <activity android:name=".DisplayMessageActivity"
-            android:parentActivityName=".aaActivity">
+
         </activity>
     </application>
 

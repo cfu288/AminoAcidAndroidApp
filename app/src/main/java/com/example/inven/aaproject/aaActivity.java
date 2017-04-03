@@ -56,13 +56,6 @@ public class aaActivity extends AppCompatActivity {
     }
 
     public void sendMessage(View view){
-        // An Intent is an object that provides runtime binding between
-        // separate components, such as two activities. The Intent represents
-        // an app’s "intent to do something." You can use intents for a wide
-        // variety of tasks, but in this lesson, your intent starts another activity.
-        //Intent intent = new Intent(this, DisplayMessageActivity.class);
-        //intent.putExtra(EXTRA_MESSAGE, message);
-        //startActivity(intent);
         EditText editText = (EditText) findViewById(R.id.editText);
         TextView tv = (TextView) findViewById(R.id.hintLabel);
         String message = editText.getText().toString().toLowerCase().replaceAll("\\s+","");
