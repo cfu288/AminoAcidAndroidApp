@@ -13,13 +13,14 @@
         android:layout_marginBottom="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
+        android:contentDescription="@string/edit_message"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="@string/edit_message"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.571"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toLeftOf="@+id/button2" />
+        app:layout_constraintRight_toLeftOf="@+id/button2"
+        tools:text="@string/edit_message" />
 
     <Button
         android:id="@+id/button2"

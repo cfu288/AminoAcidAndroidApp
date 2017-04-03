@@ -10,8 +10,9 @@ import android.widget.ImageView;
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
-    public static final String EXTRA_MESSAGE = "com.example.myfirstapp.MESSAGE";
-    public static final int[] aaArr = { R.drawable.alanine, R.drawable.arginine, R.drawable.aspartate,
+    //public static final String EXTRA_MESSAGE = "com.example.myfirstapp.MESSAGE";
+    public static final int[] aaArr = {
+            R.drawable.alanine, R.drawable.arginine, R.drawable.asparagine,
             R.drawable.asparticacid, R.drawable.cystine, R.drawable.glutamicacid,
             R.drawable.glutamine, R.drawable.glycine, R.drawable.histidine,
             R.drawable.isoleucine,R.drawable.leucine, R.drawable.lysine,
@@ -19,11 +20,13 @@ public class MainActivity extends AppCompatActivity {
             R.drawable.serine, R.drawable.threonine, R.drawable.tryptophan,
             R.drawable.tyrosine, R.drawable.valine
     };
-    public static final String[] aaStrArr = {"alanine","arginine","aspartate","asparticacid","cystine",
+    public static final String[] aaStrArr = {"alanine","arginine","asparagine","asparticacid","cystine",
             "glutamicacid","glutamine","glycine","histidine","isoleucine","leucine",
             "lysine","methionine","phenylalanine","proline","serine","threonine",
             "tryptophan","tyrosine","valine"
     };
+    public static int lastInt;
+    public static String currentAA;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +34,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ImageView iv = (ImageView) findViewById(R.id.imageView);
         int randInt = getRand();
+        lastInt = randInt;
         iv.setImageResource(aaArr[randInt]);
+        currentAA = aaStrArr[randInt];
     }
 
     public int getRand(){
@@ -48,12 +53,19 @@ public class MainActivity extends AppCompatActivity {
         // an app’s "intent to do something." You can use intents for a wide
         // variety of tasks, but in this lesson, your intent starts another activity.
         //Intent intent = new Intent(this, DisplayMessageActivity.class);
-        //EditText editText = (EditText) findViewById(R.id.editText);
-        //String message = editText.getText().toString();
+        EditText editText = (EditText) findViewById(R.id.editText);
+        String message = editText.getText().toString().toLowerCase().replaceAll("\\s+","");
         //intent.putExtra(EXTRA_MESSAGE, message);
         //startActivity(intent);
         ImageView iv = (ImageView) findViewById(R.id.imageView);
         int randInt = getRand();
-        iv.setImageResource(aaArr[randInt]);
+        while(randInt == lastInt){randInt = getRand();} // Make sure new int is diff
+        if(message.equals(currentAA)){
+            iv.setImageResource(aaArr[randInt]);
+            currentAA = aaStrArr[randInt];
+            editText.setText("");
+        }else{
+            editText.setText("");
+        }
     }
 }
