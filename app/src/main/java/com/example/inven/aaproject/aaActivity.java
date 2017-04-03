@@ -29,6 +29,8 @@ public class aaActivity extends AppCompatActivity {
     };
     public static int lastInt;
     public static String currentAA;
+    public static int numberQ;
+    public static int currentQ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +42,15 @@ public class aaActivity extends AppCompatActivity {
         lastInt = randInt;
         iv.setImageResource(aaArr[randInt]);
         currentAA = aaStrArr[randInt];
+        currentQ = 0;
+        TextView tv = (TextView) findViewById(R.id.textViewCounter);
+        Bundle extras = getIntent().getExtras();
+        if(extras == null) {
+            numberQ = 0;
+        } else {
+            numberQ = extras.getInt("number_questions");
+        }
+        tv.setText(currentQ + "/" + numberQ);
     }
 
     public int getRand(){
@@ -67,6 +78,10 @@ public class aaActivity extends AppCompatActivity {
             currentAA = aaStrArr[randInt];
             tv.setText("");
             editText.setText("");
+            currentQ++;
+            TextView tv1 = (TextView) findViewById(R.id.textViewCounter);
+            tv1.setText(currentQ + "/" + numberQ);
+            if (currentQ >= numberQ) finish();
         }else{
             editText.setText("");
         }
