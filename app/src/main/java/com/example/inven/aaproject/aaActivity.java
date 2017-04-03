@@ -1,6 +1,9 @@
 package com.example.inven.aaproject;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.os.Handler;
+import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -31,6 +34,9 @@ public class aaActivity extends AppCompatActivity {
     public static String currentAA;
     public static int numberQ;
     public static int currentQ;
+    private ConstraintLayout screen;
+    private Handler handler;
+    int i;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +51,8 @@ public class aaActivity extends AppCompatActivity {
         currentQ = 0;
         TextView tv = (TextView) findViewById(R.id.textViewCounter);
         Bundle extras = getIntent().getExtras();
+        screen = (ConstraintLayout)findViewById(R.id.screen);
+        screen.setBackgroundColor(Color.argb(255, 255, 255, 255));
         if(extras == null) {
             numberQ = 0;
         } else {
@@ -84,6 +92,28 @@ public class aaActivity extends AppCompatActivity {
             if (currentQ >= numberQ) finish();
         }else{
             editText.setText("");
+            //https://stackoverflow.com/questions/5200811/in-android-how-do-i-smoothly-fade-the-background-from-one-color-to-another-ho
+            screen = (ConstraintLayout)findViewById(R.id.screen);
+            handler = new Handler();
+
+            (new Thread(){
+                @Override
+                public void run(){
+                    for(i=0; i<255; i++){
+                        handler.post(new Runnable(){
+                            public void run(){
+                                screen.setBackgroundColor(Color.argb(255, 255, i, i));
+                            }
+                        });
+                        // next will pause the thread for some time
+                        try{ sleep(3); }
+                        catch (InterruptedException e) {
+                            e.printStackTrace();
+                            break;
+                        }
+                    }
+                }
+            }).start();
         }
     }
 }
