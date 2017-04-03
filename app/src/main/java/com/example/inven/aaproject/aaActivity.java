@@ -6,10 +6,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import java.util.Random;
 
-public class MainActivity extends AppCompatActivity {
+public class aaActivity extends AppCompatActivity {
     //public static final String EXTRA_MESSAGE = "com.example.myfirstapp.MESSAGE";
     public static final int[] aaArr = {
             R.drawable.alanine, R.drawable.arginine, R.drawable.asparagine,
@@ -20,8 +21,8 @@ public class MainActivity extends AppCompatActivity {
             R.drawable.serine, R.drawable.threonine, R.drawable.tryptophan,
             R.drawable.tyrosine, R.drawable.valine
     };
-    public static final String[] aaStrArr = {"alanine","arginine","asparagine","asparticacid","cystine",
-            "glutamicacid","glutamine","glycine","histidine","isoleucine","leucine",
+    public static final String[] aaStrArr = {"alanine","arginine","asparagine","aspartic acid","cystine",
+            "glutamic acid","glutamine","glycine","histidine","isoleucine","leucine",
             "lysine","methionine","phenylalanine","proline","serine","threonine",
             "tryptophan","tyrosine","valine"
     };
@@ -47,22 +48,29 @@ public class MainActivity extends AppCompatActivity {
         return randInt;
     }
 
+    public void revealHint(View view){
+        TextView tv = (TextView) findViewById(R.id.hintLabel);
+        tv.setText(currentAA);
+    }
+
     public void sendMessage(View view){
         // An Intent is an object that provides runtime binding between
         // separate components, such as two activities. The Intent represents
         // an app’s "intent to do something." You can use intents for a wide
         // variety of tasks, but in this lesson, your intent starts another activity.
         //Intent intent = new Intent(this, DisplayMessageActivity.class);
-        EditText editText = (EditText) findViewById(R.id.editText);
-        String message = editText.getText().toString().toLowerCase().replaceAll("\\s+","");
         //intent.putExtra(EXTRA_MESSAGE, message);
         //startActivity(intent);
+        EditText editText = (EditText) findViewById(R.id.editText);
+        TextView tv = (TextView) findViewById(R.id.hintLabel);
+        String message = editText.getText().toString().toLowerCase().replaceAll("\\s+","");
         ImageView iv = (ImageView) findViewById(R.id.imageView);
         int randInt = getRand();
         while(randInt == lastInt){randInt = getRand();} // Make sure new int is diff
-        if(message.equals(currentAA)){
+        if(message.equals(currentAA.toLowerCase().replaceAll("\\s+",""))){
             iv.setImageResource(aaArr[randInt]);
             currentAA = aaStrArr[randInt];
+            tv.setText("");
             editText.setText("");
         }else{
             editText.setText("");
