@@ -20,7 +20,9 @@
         app:layout_constraintHorizontal_bias="0.571"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toLeftOf="@+id/sendButton"
-        tools:text="@string/edit_message" />
+        tools:text="@string/edit_message"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp" />
 
     <Button
         android:id="@+id/sendButton"
@@ -30,21 +32,21 @@
         android:onClick="sendMessage"
         android:text="@string/button_send"
         app:layout_constraintBaseline_toBaselineOf="@+id/editText"
-        app:layout_constraintRight_toRightOf="parent" />
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginEnd="16dp" />
 
-    <ImageView
+    <com.example.inven.aaproject.SquareImageView
         android:id="@+id/imageView"
-        android:layout_width="285dp"
-        android:layout_height="329dp"
-        android:layout_marginBottom="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="356dp"
+        android:layout_marginEnd="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:adjustViewBounds="true"
-        android:contentDescription="aaimage"
         android:scaleType="fitXY"
-        app:layout_constraintBottom_toTopOf="@+id/hintButton"
-        app:layout_constraintHorizontal_bias="0.511"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -57,7 +59,8 @@
         android:onClick="revealHint"
         android:text="Hint"
         app:layout_constraintBaseline_toBaselineOf="@+id/hintLabel"
-        app:layout_constraintRight_toRightOf="parent" />
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginEnd="16dp" />
 
     <TextView
         android:id="@+id/hintLabel"
@@ -68,6 +71,8 @@
         app:layout_constraintRight_toLeftOf="@+id/hintButton"
         android:layout_marginRight="16dp"
         android:layout_marginLeft="16dp"
-        app:layout_constraintLeft_toLeftOf="parent" />
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp" />
 
 </android.support.constraint.ConstraintLayout>

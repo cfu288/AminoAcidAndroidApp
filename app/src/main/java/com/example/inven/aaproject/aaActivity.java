@@ -3,6 +3,7 @@ package com.example.inven.aaproject;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -33,7 +34,8 @@ public class aaActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        ImageView iv = (ImageView) findViewById(R.id.imageView);
+        Log.d( "Verbose" ,"App started!");
+        SquareImageView iv = (SquareImageView) findViewById(R.id.imageView);
         int randInt = getRand();
         lastInt = randInt;
         iv.setImageResource(aaArr[randInt]);
@@ -64,7 +66,7 @@ public class aaActivity extends AppCompatActivity {
         EditText editText = (EditText) findViewById(R.id.editText);
         TextView tv = (TextView) findViewById(R.id.hintLabel);
         String message = editText.getText().toString().toLowerCase().replaceAll("\\s+","");
-        ImageView iv = (ImageView) findViewById(R.id.imageView);
+        SquareImageView iv = (SquareImageView) findViewById(R.id.imageView);
         int randInt = getRand();
         while(randInt == lastInt){randInt = getRand();} // Make sure new int is diff
         if(message.equals(currentAA.toLowerCase().replaceAll("\\s+",""))){
