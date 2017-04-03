@@ -21,10 +21,10 @@ public class aaActivity extends AppCompatActivity {
             R.drawable.serine, R.drawable.threonine, R.drawable.tryptophan,
             R.drawable.tyrosine, R.drawable.valine
     };
-    public static final String[] aaStrArr = {"alanine","arginine","asparagine","aspartic acid","cystine",
-            "glutamic acid","glutamine","glycine","histidine","isoleucine","leucine",
-            "lysine","methionine","phenylalanine","proline","serine","threonine",
-            "tryptophan","tyrosine","valine"
+    public static final String[] aaStrArr = {"Alanine","Arginine","Asparagine","Aspartic Acid","Cystine",
+            "Glutamic Acid","Glutamine","Glycine","Histidine","Isoleucine","Leucine",
+            "Lysine","Methionine","Phenylalanine","Proline","Serine","Threonine",
+            "Tryptophan","Tyrosine","Valine"
     };
     public static int lastInt;
     public static String currentAA;
