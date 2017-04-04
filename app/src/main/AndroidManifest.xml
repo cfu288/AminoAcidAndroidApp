@@ -22,11 +22,11 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".aaActivity"
+            android:name=".QuizActivity"
             android:windowSoftInputMode="adjustPan"></activity>
         <activity
             android:name=".DisplayMessageActivity"
-            android:parentActivityName=".aaActivity"></activity>
+            android:parentActivityName=".QuizActivity"></activity>
         <activity android:name=".ReviewActivity"
             android:parentActivityName=".MainActivity">
         </activity>

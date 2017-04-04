@@ -1,21 +1,17 @@
 package com.example.inven.aaproject;
 
-import android.content.Intent;
 import android.graphics.Color;
 import android.os.Handler;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.Random;
 
-public class aaActivity extends AppCompatActivity {
-    //public static final String EXTRA_MESSAGE = "com.example.myfirstapp.MESSAGE";
+public class QuizActivity extends AppCompatActivity {
     public static final int[] aaArr = {
             R.drawable.alanine, R.drawable.arginine, R.drawable.asparagine,
             R.drawable.asparticacid, R.drawable.cystine, R.drawable.glutamicacid,
@@ -25,7 +21,7 @@ public class aaActivity extends AppCompatActivity {
             R.drawable.serine, R.drawable.threonine, R.drawable.tryptophan,
             R.drawable.tyrosine, R.drawable.valine
     };
-    public static final String[] aaStrArr = {"Alanine","Arginine","Asparagine","Aspartic Acid","Cystine",
+    public static final String[] aaStrArr = {"Alanine","Arginine","Asparagine","Aspartic Acid","Cysteine",
             "Glutamic Acid","Glutamine","Glycine","Histidine","Isoleucine","Leucine",
             "Lysine","Methionine","Phenylalanine","Proline","Serine","Threonine",
             "Tryptophan","Tyrosine","Valine"
@@ -42,17 +38,20 @@ public class aaActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Log.d( "Verbose" ,"App started!");
+
         SquareImageView iv = (SquareImageView) findViewById(R.id.imageView);
         int randInt = getRand();
         lastInt = randInt;
         iv.setImageResource(aaArr[randInt]);
+
         currentAA = aaStrArr[randInt];
-        currentQ = 0;
-        TextView tv = (TextView) findViewById(R.id.textViewCounter);
-        Bundle extras = getIntent().getExtras();
+        currentQ = 1;
+
         screen = (ConstraintLayout)findViewById(R.id.screen);
         screen.setBackgroundColor(Color.argb(255, 255, 255, 255));
+
+        TextView tv = (TextView) findViewById(R.id.textViewCounter);
+        Bundle extras = getIntent().getExtras();
         if(extras == null) {
             numberQ = 0;
         } else {
@@ -79,17 +78,20 @@ public class aaActivity extends AppCompatActivity {
         TextView tv = (TextView) findViewById(R.id.hintLabel);
         String message = editText.getText().toString().toLowerCase().replaceAll("\\s+","");
         SquareImageView iv = (SquareImageView) findViewById(R.id.imageView);
+
         int randInt = getRand();
         while(randInt == lastInt){randInt = getRand();} // Make sure new int is diff
         if(message.equals(currentAA.toLowerCase().replaceAll("\\s+",""))){
             currentQ++;
-            if (currentQ == numberQ) finish();
-            iv.setImageResource(aaArr[randInt]);
-            currentAA = aaStrArr[randInt];
-            tv.setText("");
-            editText.setText("");
-            TextView tv1 = (TextView) findViewById(R.id.textViewCounter);
-            tv1.setText(currentQ + "/" + numberQ);
+            if (currentQ == numberQ + 1) {finish();}
+            else {
+                iv.setImageResource(aaArr[randInt]);
+                currentAA = aaStrArr[randInt];
+                tv.setText("");
+                editText.setText("");
+                TextView tv1 = (TextView) findViewById(R.id.textViewCounter);
+                tv1.setText(currentQ + "/" + numberQ);
+            }
         }else{
             editText.setText("");
             //https://stackoverflow.com/questions/5200811/in-android-how-do-i-smoothly-fade-the-background-from-one-color-to-another-ho
@@ -106,7 +108,7 @@ public class aaActivity extends AppCompatActivity {
                             }
                         });
                         // next will pause the thread for some time
-                        try{ sleep(3); }
+                        try{ sleep(1); }
                         catch (InterruptedException e) {
                             e.printStackTrace();
                             break;
