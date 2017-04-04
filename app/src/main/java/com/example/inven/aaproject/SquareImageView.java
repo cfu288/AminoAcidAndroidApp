@@ -21,8 +21,8 @@ public class SquareImageView extends AppCompatImageView {
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-        int width = getMeasuredWidth();
-        setMeasuredDimension(width, width);
+        int height = getMeasuredHeight();
+        setMeasuredDimension(height, height);
     }
 
 }

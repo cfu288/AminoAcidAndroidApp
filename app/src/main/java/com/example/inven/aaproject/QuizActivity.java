@@ -40,9 +40,12 @@ public class QuizActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         SquareImageView iv = (SquareImageView) findViewById(R.id.imageView);
+        TextView tv1 = (TextView) findViewById(R.id.hintLabel);
         int randInt = getRand();
         lastInt = randInt;
         iv.setImageResource(aaArr[randInt]);
+
+        tv1.bringToFront();
 
         currentAA = aaStrArr[randInt];
         currentQ = 1;

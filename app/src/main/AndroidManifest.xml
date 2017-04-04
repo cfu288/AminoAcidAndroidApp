@@ -23,7 +23,7 @@
         </activity>
         <activity
             android:name=".QuizActivity"
-            android:windowSoftInputMode="adjustPan"></activity>
+            android:windowSoftInputMode="adjustResize"></activity>
         <activity
             android:name=".DisplayMessageActivity"
             android:parentActivityName=".QuizActivity"></activity>
