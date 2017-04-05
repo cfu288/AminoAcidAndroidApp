@@ -13,9 +13,9 @@
             android:icon="@mipmap/ic_launcher"
             android:label="@string/aaQuiz"
             android:roundIcon="@mipmap/ic_launcher_round"
+            android:screenOrientation="portrait"
             android:supportsRtl="true"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:screenOrientation="portrait">
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -24,14 +24,18 @@
         </activity>
         <activity
             android:name=".QuizActivity"
-            android:windowSoftInputMode="adjustResize"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".DisplayMessageActivity"
-            android:parentActivityName=".QuizActivity"></activity>
-        <activity android:name=".ReviewActivity"
+            android:parentActivityName=".QuizActivity" />
+        <activity
+            android:name=".ReviewActivity"
             android:parentActivityName=".MainActivity"
             android:screenOrientation="portrait">
+        </activity>
+        <activity android:name=".showAminoImg"
+            android:parentActivityName=".ReviewActivity">
         </activity>
     </application>
 
