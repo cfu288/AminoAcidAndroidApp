@@ -7,6 +7,7 @@
     tools:context="com.example.inven.aaproject.showAminoImg">
 
     <ImageView
+<<<<<<< HEAD
         android:id="@+id/imageView3"
         android:layout_width="214dp"
         android:layout_height="345dp"
@@ -15,4 +16,18 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintRight_toRightOf="parent" />
+=======
+        android:id="@+id/imageView"
+        android:layout_width="223dp"
+        android:layout_height="467dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/alanine" />
+>>>>>>> 9620fddedad4245c28463dce75363e362b8d49cb
 </android.support.constraint.ConstraintLayout>

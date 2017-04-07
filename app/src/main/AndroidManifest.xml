@@ -32,8 +32,16 @@
         <activity
             android:name=".ReviewActivity"
             android:parentActivityName=".MainActivity"
+<<<<<<< HEAD
             android:screenOrientation="portrait"></activity>
         <activity android:name=".showAminoImg"></activity>
+=======
+            android:screenOrientation="portrait">
+        </activity>
+        <activity android:name=".showAminoImg"
+            android:parentActivityName=".ReviewActivity">
+        </activity>
+>>>>>>> 9620fddedad4245c28463dce75363e362b8d49cb
     </application>
 
 </manifest>

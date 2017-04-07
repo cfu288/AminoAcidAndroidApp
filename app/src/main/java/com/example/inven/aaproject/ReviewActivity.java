@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
@@ -24,14 +25,31 @@ public class ReviewActivity extends AppCompatActivity {
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_expandable_list_item_1, aaStrArr);
         lv.setAdapter(adapter);
         lv.setOnItemClickListener(mMessageClickedHandler);
+<<<<<<< HEAD
+=======
+        System.out.println("JEADF");
+>>>>>>> 9620fddedad4245c28463dce75363e362b8d49cb
     }
 
     private AdapterView.OnItemClickListener mMessageClickedHandler = new AdapterView.OnItemClickListener() {
         public void onItemClick(AdapterView parent, View v, int position, long id) {
             // Do something in response to the click
+<<<<<<< HEAD
             String data = (String) parent.getItemAtPosition(position);
+=======
+            int data = (int) position;
+            System.out.println(position);
+            showImage(position);
+>>>>>>> 9620fddedad4245c28463dce75363e362b8d49cb
         }
     };
+
+    public void showImage(int s){
+        Intent intent = new Intent(this, showAminoImg.class);
+        intent.putExtra("index",s);
+        System.out.println("INDEX: " + s);
+        startActivity(intent);
+    }
 
     //listView.setOnItemClickListener(mMessageClickedHandler);
 
